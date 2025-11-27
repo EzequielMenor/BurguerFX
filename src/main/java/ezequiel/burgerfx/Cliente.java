@@ -36,13 +36,16 @@ public class Cliente implements Runnable {
                     boolean esVip = Math.random() < 0.20;
                     burguer.cobrar(esVip);
                     if (esVip) {
-                        Platform.runLater(() -> controller.agregarMensaje("Cliente #" + id + " 🌟 ¡ES VIP! Compra con 20% de descuento."));
+                        Platform.runLater(() -> controller
+                                .agregarMensaje("Cliente #" + id + " 🌟 ¡ES VIP! Compra con 20% de descuento."));
                     } else {
-                        Platform.runLater(() -> controller.agregarMensaje("Cliente #" + id + " compra su hamburguesa (" + burguer.getPrecioBurguer() + " €)."));
+                        Platform.runLater(() -> controller.agregarMensaje(
+                                "Cliente #" + id + " compra su hamburguesa (" + burguer.getPrecioBurguer() + " €)."));
                     }
 
                     Thread.sleep((int) (Math.random() * 2000) + 1000);
-                    Platform.runLater(() -> controller.agregarMensaje("Cliente #" + id + " ha terminado y se va satisfecho."));
+                    Platform.runLater(
+                            () -> controller.agregarMensaje("Cliente #" + id + " ha terminado y se va satisfecho."));
                 } else {
                     Thread.sleep(1000);
                     Platform.runLater(new Runnable() {
